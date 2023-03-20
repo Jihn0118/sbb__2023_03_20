@@ -17,7 +17,7 @@ spring:
     password: 2017150011
   jpa:
     hibernate:
-      ddl-auto: create # DB 테이블 자동생성(엔티티 클래스만 만들면 됨)
+      ddl-auto: update # DB 테이블 자동생성(엔티티 클래스만 만들면 됨)
   output:   # 콘솔창을 컬러로 바꾸기
     ansi:
       enabled: always
