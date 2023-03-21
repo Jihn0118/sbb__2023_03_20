@@ -29,6 +29,9 @@ class SbbApplicationTests {
 
 	@BeforeEach
 	void beforeEach(){
+		aR.deleteAll();
+		aR.clearAutoIncrement();
+
 		qR.deleteAll();
 		qR.clearAutoIncrement();
 		// 첫번째 질문 저장
