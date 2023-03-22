@@ -28,7 +28,8 @@ class SbbApplicationTests {
 	private AnswerRepository aR;
 
 	@BeforeEach
-	void beforeEach(){
+		// 아래 메서드는 각 테스트케이스가 실행되기 전에 실행된다.
+	void beforeEach() {
 		// 모든 데이터 삭제
 		aR.deleteAll();
 		aR.clearAutoIncrement();
@@ -56,8 +57,8 @@ class SbbApplicationTests {
 		// 답변 1개 생성
 		Answer a1 = new Answer();
 		a1.setContent("네 자동으로 생성됩니다.");
-		q2.addAnswer(a1);
 		a1.setCreateDate(LocalDateTime.now());
+		q2.addAnswer(a1);
 		aR.save(a1);
 	}
 

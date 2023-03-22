@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -33,7 +34,7 @@ public class Question {
 
     @OneToMany(mappedBy = "question", cascade = CascadeType.REMOVE)
     // OneToMany 에는 직접객체초기화
-    private List<Answer> answerList;
+    private List<Answer> answerList = new ArrayList<>();
 
     public void addAnswer(Answer a) {
         a.setQuestion(this);
