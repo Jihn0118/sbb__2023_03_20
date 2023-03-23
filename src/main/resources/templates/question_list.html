@@ -1,6 +1,10 @@
-<link rel="stylesheet" type="text/css" th:href="@{/bootstrap.min.css}">
-<div class="container my-3">
+<html layout:decorate="~{layout}">
+<head></head>
+<body>
+<div layout:fragment="content" class="container my-3">
+
     <table class="table">
+
         <thead class="table-dark">
         <tr>
             <th>번호</th>
@@ -9,13 +13,19 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="question, loop : ${questionList}">
-            <td th:text="${loop.count}"></td>
+        <tr th:each="q, loop : ${questionList}">
             <td>
-                <a th:href="@{|/question/detail/${question.id}|}"
-                   th:text="${question.subject}"></a>
-            <td th:text="${#temporals.format(question.createDate, 'yyyy-MM-dd HH:mm')}"></td>
+                <a th:text="${loop.count}" th:href="@{|/question/detail/${q.id}|}"></a>
+            </td>
+            <td>
+                <a th:text="${q.subject}" th:href="@{|/question/detail/${q.id}|}"></a>
+            </td>
+            <td th:text="${#temporals.format(q.createDate, 'yy-MM-dd HH:mm')}"></td>
         </tr>
         </tbody>
     </table>
+
 </div>
+</body>
+
+</html>
