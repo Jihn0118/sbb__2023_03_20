@@ -5,7 +5,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
+import java.util.Optional;
+
 public interface UserRepository extends JpaRepository<SiteUser, Long> {
+    Optional<SiteUser> findByusername(String username);
+
     @Transactional
     // @Modifying // 만약 아래 쿼리가 SELECT가 아니라면 이걸 붙여야 한다.
     @Modifying
