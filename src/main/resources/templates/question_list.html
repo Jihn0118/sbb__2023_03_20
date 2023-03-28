@@ -105,6 +105,10 @@
             </td>
             <td>
                 <a th:text="${q.subject}" th:href="@{|/question/detail/${q.id}|}"></a>
+                <span class="text-danger small ms-2"
+                      th:if="${#lists.size(q.answerList) > 0}"
+                      th:text="${#lists.size(q.answerList)}">
+                </span>
             </td>
             <td th:text="${#temporals.format(q.createDate, 'yy-MM-dd HH:mm')}"></td>
         </tr>
