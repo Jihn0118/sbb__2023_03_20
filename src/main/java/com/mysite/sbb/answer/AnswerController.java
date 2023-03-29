@@ -76,4 +76,13 @@ public class AnswerController {
         this.aS.delete(answer);
         return String.format("redirect:/question/detail/%s", answer.getQuestion().getId());
     }
+
+    @PreAuthorize("isAuthenticated()")
+    @GetMapping("/vote/{id}")
+    public String answerVote(Principal principal, @PathVariable("id") Integer id) {
+        Answer answer = this.aS.getAnswer(id);
+        SiteUser siteUser = this.uS.getUser(principal.getName());
+        this.aS.vote(answer, siteUser);
+        return String.format("redirect:/question/detail/%s", answer.getQuestion().getId());
+    }
 }
